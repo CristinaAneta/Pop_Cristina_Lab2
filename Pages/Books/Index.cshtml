@@ -1,7 +1,7 @@
-﻿@page
+﻿@page "/"
 @model Pop_Cristina_Lab2.Pages.Books.IndexModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Books";
 }
 
 <h1>Index</h1>
@@ -25,9 +25,14 @@
                 @Html.DisplayNameFor(model => model.Book[0].PublishingDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Publisher.PublisherName)
+                @Html.DisplayNameFor(model => model.Book[0].Publisher)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].BookCategories)
+            </th>
+            <th>,    </th>
         </tr>
+
     </thead>
     <tbody>
         @foreach (var item in Model.Book)

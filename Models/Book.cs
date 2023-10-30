@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+
 namespace Pop_Cristina_Lab2.Models
 {
     public class Book
@@ -9,13 +10,19 @@ namespace Pop_Cristina_Lab2.Models
         public int ID { get; set; }
         [Display(Name = "Book Title")]
         public string Title { get; set; }
-        public string Author { get; set; }
-        [Column(TypeName = "decimal(6, 2)")]
+       
+        //[Column(TypeName = "decimal(6, 2)")]
         public decimal Price { get; set; }
         [DataType(DataType.Date)]
         public DateTime PublishingDate { get; set; }
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
+       
+       // public string Title { get; set; }
+        public int? AuthorID { get; set; } // Cheie străină către Authors
+
+        public Author? Author { get; set; }
+        public ICollection<BookCategory>? BookCategories {  get; set; } 
     }
    
 }
